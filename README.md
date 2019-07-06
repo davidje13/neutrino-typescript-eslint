@@ -37,7 +37,7 @@ so you should already have those installed and configured.
    ```json
    {
      "scripts": {
-       "lint": "eslint --format codeframe --ext mjs,jsx,js,tsx,ts src && tsc"
+       "lint": "eslint --format codeframe --ext mjs,jsx,js,tsx,ts src test && tsc"
      }
    },
    ```
