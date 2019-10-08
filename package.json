@@ -22,13 +22,13 @@
   },
   "homepage": "https://github.com/davidje13/neutrino-typescript-eslint#readme",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^1.11.0",
-    "@typescript-eslint/parser": "^1.11.0",
-    "deepmerge": "^3.3.0",
-    "neutrino-patch": "git+https://github.com/davidje13/neutrino-patch#semver:^1.0.0"
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
+    "deepmerge": "^4.1.1",
+    "neutrino-patch": "git+https://github.com/davidje13/neutrino-patch#semver:^1.0.1"
   },
   "peerDependencies": {
     "typescript": "3.x",
-    "eslint": "5.x"
+    "eslint": "5.x || 6.x"
   }
 }
