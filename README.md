@@ -13,7 +13,7 @@ so you should already have those installed and configured.
 1. Install dependencies:
 
    ```bash
-   npm install --save-dev git+https://github.com/davidje13/neutrino-typescript-eslint#semver:^1.0.3
+   npm install --save-dev git+https://github.com/davidje13/neutrino-typescript-eslint#semver:^1.0.4
    ```
 
 2. Include in `.neutrinorc.js`:
