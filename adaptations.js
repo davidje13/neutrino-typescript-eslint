@@ -6,6 +6,9 @@ function copyObjJsToTs(conf) {
 }
 
 function copyListJsToTs(list) {
+  if (!Array.isArray(list)) {
+    return list;
+  }
   const converted = list
     .map((v) => v.startsWith('js') ? 'ts' + v.substr(2) : v.startsWith('.js') ? '.ts' + v.substr(3) : '')
     .filter((v) => v);
@@ -13,6 +16,9 @@ function copyListJsToTs(list) {
 }
 
 function copyGlobListJsToTs(list) {
+  if (!Array.isArray(list)) {
+    return list;
+  }
   return list.map((v) => v
     .replace(/(?<=[{,])(\.?)js([^,}]*)(?=[,}])/g, '$1js$2,$1ts$2')
     .replace(/(?<=[^{,])\.js([^{},]*)$/, '.{js$1,ts$1}')
@@ -22,11 +28,11 @@ function copyGlobListJsToTs(list) {
 const BASE_RULES = {
   'react/jsx-filename-extension': ([mode, opts = {}]) => ([mode, {
     ...opts,
-    extensions: copyListJsToTs(opts.extensions || []),
+    extensions: copyListJsToTs(opts.extensions),
   }]),
   'import/no-extraneous-dependencies': ([mode, opts = {}]) => ([mode, {
     ...opts,
-    devDependencies: copyGlobListJsToTs(opts.devDependencies || []),
+    devDependencies: copyGlobListJsToTs(opts.devDependencies),
   }]),
   'import/extensions': (config) => config.map(copyObjJsToTs),
 };
