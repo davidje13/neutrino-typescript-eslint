@@ -37,6 +37,7 @@ const TYPESCRIPT_RULES = {
   'no-dupe-keys': ['off'],
   'no-unreachable': ['off'],
   'valid-typeof': ['off'],
+  'babel/valid-typeof': ['off'],
   'no-const-assign': ['off'],
   'no-new-symbol': ['off'],
   'no-this-before-super': ['off'],
@@ -56,15 +57,16 @@ const TYPESCRIPT_RULES = {
   'no-extra-semi': '@typescript-eslint/no-extra-semi',
   'no-magic-numbers': '@typescript-eslint/no-magic-numbers', // note: ts version has additional config options
   'no-unused-expressions': '@typescript-eslint/no-unused-expressions',
-  'babel/no-unused-expressions': '@typescript-eslint/no-unused-expressions', // TODO: is it OK to pass config?
+  'babel/no-unused-expressions': '@typescript-eslint/no-unused-expressions',
   'no-unused-vars': '@typescript-eslint/no-unused-vars', // https://github.com/typescript-eslint/typescript-eslint/issues/1856
   'no-use-before-define': '@typescript-eslint/no-use-before-define', // note: ts version has additional config options, also see https://github.com/typescript-eslint/typescript-eslint/issues/1856
   'no-useless-constructor': '@typescript-eslint/no-useless-constructor',
   'quotes': '@typescript-eslint/quotes',
+  'babel/quotes': '@typescript-eslint/quotes',
   'require-await': '@typescript-eslint/require-await',
   'no-return-await': '@typescript-eslint/return-await', // note: ts default 'in-try-catch' matches no-return-await
   'semi': '@typescript-eslint/semi',
-  'babel/semi': '@typescript-eslint/semi', // TODO: is it OK to pass config?
+  'babel/semi': '@typescript-eslint/semi',
   'space-before-function-paren': '@typescript-eslint/space-before-function-paren',
 };
 
