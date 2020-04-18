@@ -3,6 +3,8 @@
   "version": "1.0.5",
   "description": "Typescript ESLint integration for neutrino projects",
   "files": [
+    "adaptations.js",
+    "applyAdaptations.js",
     "index.js"
   ],
   "main": "index.js",
