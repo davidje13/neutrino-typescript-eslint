@@ -42,7 +42,17 @@ so you should already have those installed and configured.
      "scripts": {
        "lint": "eslint --format codeframe --ext mjs,jsx,js,tsx,ts src test && tsc"
      }
-   },
+   }
+   ```
+
+   Note: if you are using eslint 7 or above, you can simplify the lint script:
+
+   ```json
+   {
+     "scripts": {
+       "lint": "eslint --format codeframe src test && tsc"
+     }
+   }
    ```
 
 ## Automatic rule conversion

@@ -4,7 +4,19 @@ const applyNeutrinoPatches = require('neutrino-patch');
 const applyAdaptations = require('./applyAdaptations');
 const { BASE_RULES, TYPESCRIPT_RULES } = require('./adaptations');
 
-module.exports = () => (neutrino) => {
+function makeOverride(cliEngine, glob, adaptations) {
+  const globList = Arrays.isArray(glob) ? glob : [glob];
+  const sampleFileName = globList[0].replace(/\*+/g, 'x');
+
+  const config = cliEngine.getConfigForFile(sampleFileName);
+  const rules = applyAdaptations(config.rules, adaptations);
+
+  return { files: globList, rules };
+}
+
+module.exports = ({
+  typescriptFiles = ['*.ts', '*.tsx'],
+} = {}) => (neutrino) => {
   applyNeutrinoPatches(neutrino);
 
   neutrino.tapAtEnd('lint', 'eslint', (options) => {
@@ -12,10 +24,9 @@ module.exports = () => (neutrino) => {
       return options;
     }
 
+    // CLIEngine is not recommended but still available in 7+
+    // We support 5.x and 6.x, so cannot update to ESLint yet
     const cliEngine = new CLIEngine(options);
-    const jsRules = cliEngine.getConfigForFile('foo.js').rules;
-    const tsRules = cliEngine.getConfigForFile('foo.ts').rules;
-    const tsxRules = cliEngine.getConfigForFile('foo.tsx').rules;
 
     return merge(options, {
       parser: '@typescript-eslint/parser',
@@ -32,16 +43,13 @@ module.exports = () => (neutrino) => {
             },
           },
         },
-        rules: applyAdaptations(jsRules, BASE_RULES),
+        rules: applyAdaptations(cliEngine.getRules(), BASE_RULES),
         overrides: [
-          {
-            files: ['*.ts'],
-            rules: applyAdaptations(tsRules, TYPESCRIPT_RULES),
-          },
-          {
-            files: ['*.tsx'],
-            rules: applyAdaptations(tsxRules, TYPESCRIPT_RULES),
-          },
+          ...typescriptFiles.map((glob) => makeOverride(cliEngine, glob, TYPESCRIPT_RULES)),
+
+          // ESLint 7+ will automatically include files matched by overrides,
+          // So this code means --ext foo,bar,baz isn't needed in the eslint command anymore
+          ...neutrino.options.extensions.map((ext) => ({ files: [`**/*.${ext}`] })),
         ],
       },
     })
