@@ -5,7 +5,7 @@ const applyAdaptations = require('./applyAdaptations');
 const { BASE_RULES, TYPESCRIPT_RULES } = require('./adaptations');
 
 function makeOverride(cliEngine, glob, adaptations) {
-  const globList = Arrays.isArray(glob) ? glob : [glob];
+  const globList = Array.isArray(glob) ? glob : [glob];
   const sampleFileName = globList[0].replace(/\*+/g, 'x');
 
   const config = cliEngine.getConfigForFile(sampleFileName);
