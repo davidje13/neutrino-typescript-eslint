@@ -43,7 +43,7 @@ module.exports = ({
             },
           },
         },
-        rules: applyAdaptations(cliEngine.getRules(), BASE_RULES),
+        rules: applyAdaptations(cliEngine.getConfigForFile('x').rules, BASE_RULES),
         overrides: [
           ...typescriptFiles.map((glob) => makeOverride(cliEngine, glob, TYPESCRIPT_RULES)),
 
