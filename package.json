@@ -3,8 +3,6 @@
   "version": "1.2.3",
   "description": "Typescript ESLint integration for neutrino projects",
   "files": [
-    "adaptations.js",
-    "applyAdaptations.js",
     "index.js"
   ],
   "main": "index.js",
@@ -15,7 +13,8 @@
   },
   "keywords": [
     "neutrino",
-    "typescript"
+    "typescript",
+    "eslint"
   ],
   "author": "David Evans",
   "license": "MIT",
@@ -24,13 +23,7 @@
   },
   "homepage": "https://github.com/davidje13/neutrino-typescript-eslint#readme",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "3.x",
-    "@typescript-eslint/parser": "3.x",
-    "deepmerge": "4.x",
+    "typescript-eslint-converter": "git+https://github.com/davidje13/typescript-eslint-converter#semver:^1.0.0",
     "neutrino-patch": "git+https://github.com/davidje13/neutrino-patch#semver:^1.0.3"
-  },
-  "peerDependencies": {
-    "typescript": "3.x || 4.x",
-    "eslint": "5.x || 6.x || 7.x"
   }
 }
