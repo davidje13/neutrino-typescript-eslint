@@ -1,6 +1,6 @@
 {
   "name": "neutrino-typescript-eslint",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Typescript ESLint integration for neutrino projects",
   "files": [
     "index.js"
