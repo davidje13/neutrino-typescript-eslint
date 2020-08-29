@@ -9,20 +9,20 @@ such as airbnb easily. See below for full details.
 
 ## Installation
 
-This package is intended for use with [neutrino-typescript](https://github.com/davidje13/neutrino-typescript#readme),
+This package is intended for use with [neutrinojs-typescript](https://github.com/davidje13/neutrino-typescript#readme),
 and any `eslint` module (e.g. `@neutrino/eslint` / `@neutrino/airbnb` / etc.),
 so you should already have those installed and configured.
 
 1. Install dependencies:
 
    ```bash
-   npm install --save-dev git+https://github.com/davidje13/neutrino-typescript-eslint#semver:^1.3.0
+   npm install --save-dev neutrinojs-typescript-eslint
    ```
 
 2. Include in `.neutrinorc.js`:
 
    ```javascript
-   const typescriptLint = require('neutrino-typescript-eslint');
+   const typescriptLint = require('neutrinojs-typescript-eslint');
    // ...
 
    module.exports = {
