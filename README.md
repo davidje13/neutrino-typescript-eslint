@@ -55,6 +55,27 @@ so you should already have those installed and configured.
    }
    ```
 
+## Options
+
+```javascript
+// default values shown
+typescriptLint({
+  // file patterns where TypeScript rules are applied
+  typescriptFiles: ['*.ts', '*.tsx'],
+
+  // add "plugin:@typescript-eslint/recommended"
+  recommended: true,
+
+  // convert "indent" to "@typescript-eslint/indent"
+  indent: false,
+})
+```
+
+Note that `indent` is `false` by default due to
+[known issues with @typescript-eslint/indent](https://github.com/typescript-eslint/typescript-eslint/issues/1824).
+
+Any unrecognised options are passed through to `typescript-eslint-converter`.
+
 ## Automatic rule conversion
 
 This uses [typescript-eslint-converter](https://github.com/davidje13/typescript-eslint-converter#readme) to

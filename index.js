@@ -1,9 +1,7 @@
 const typescriptEslintConverter = require('typescript-eslint-converter');
 const applyNeutrinoPatches = require('neutrino-patch');
 
-module.exports = ({
-  typescriptFiles = ['*.ts', '*.tsx'],
-} = {}) => (neutrino) => {
+module.exports = (converterOptions) => (neutrino) => {
   applyNeutrinoPatches(neutrino);
 
   neutrino.tapAtEnd('lint', 'eslint', (options) => {
@@ -12,7 +10,7 @@ module.exports = ({
     }
 
     return typescriptEslintConverter(options, {
-      typescriptFiles,
+      ...converterOptions,
       resolveExtensions: neutrino.options.extensions,
       autoParseResolvableExtensions: true,
     });
