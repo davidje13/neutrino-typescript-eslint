@@ -13,6 +13,7 @@ module.exports = (converterOptions) => (neutrino) => {
       ...converterOptions,
       resolveExtensions: neutrino.options.extensions,
       autoParseResolvableExtensions: true,
+      useLoaderStyle: true,
     });
   });
 };
